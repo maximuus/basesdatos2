@@ -25,3 +25,31 @@ DBMS_OUTPUT.PUT_LINE('TU EDAD EN DIAS ES' || EDAD);
 
 END;
 /
+--Crear un bloque PL SQL que genere 200,000 registros de secuencia ascendete en la tabla dance
+BEGIN
+
+  FOR I IN 1..200000 LOOP
+  INSERT INTO DANCE VALUES(I,'MAX',20);
+  
+  END LOOP;
+  END;
+  /
+
+SELECT * FROM DANCE;
+
+
+--Sistema de peliculas
+
+CREATE TABLE PELICULA (ID_PELICULA INT,
+                      TITULO VARCHAR2 (120),
+                      SINOPSIS VARCHAR2 (100),
+                      CLASIFICACION VARCHAR2 (3),
+                      CONSTRAINT PK_ID_PELICULA PRIMARY KEY(ID_PELICULA));
+                      
+                      DESCRIBE PELICULA;
+                      
+                      CREATE TABLE HORARIO (ID_HORARIO INT,
+                                            ID_PELICULA INT,
+                                            HORARIO VARCHAR2 (10),
+                                            CONSTRAINT PK_ID_HORARIP PRIMARY KEY(ID_HORARIO),
+                                            CONSTRAINT FK1_ID_PELICULA FOREIGN KEY (ID_PELICULA) REFERENCES PELICULA(ID_PELICULA));
