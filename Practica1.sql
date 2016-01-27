@@ -51,5 +51,12 @@ CREATE TABLE PELICULA (ID_PELICULA INT,
                       CREATE TABLE HORARIO (ID_HORARIO INT,
                                             ID_PELICULA INT,
                                             HORARIO VARCHAR2 (10),
-                                            CONSTRAINT PK_ID_HORARIP PRIMARY KEY(ID_HORARIO),
+                                            CONSTRAINT PK_ID_HORARIO PRIMARY KEY(ID_HORARIO),
                                             CONSTRAINT FK1_ID_PELICULA FOREIGN KEY (ID_PELICULA) REFERENCES PELICULA(ID_PELICULA));
+                                            
+                      CREATE TABLE SALA (ID_SALA INT,
+                                         ID_PELI INT,
+                                         NO_SALA INT,
+                                         CONSTRAINT PK_ID_SALA PRIMARY KEY(ID_SALA),
+                                         CONSTRAINT FK2_ID_PELICULA FOREIGN KEY(ID_PELICULA) REFERENCES PELICULA(ID_PELICULA));
+       
