@@ -55,8 +55,14 @@ CREATE TABLE PELICULA (ID_PELICULA INT,
                                             CONSTRAINT FK1_ID_PELICULA FOREIGN KEY (ID_PELICULA) REFERENCES PELICULA(ID_PELICULA));
                                             
                       CREATE TABLE SALA (ID_SALA INT,
-                                         ID_PELI INT,
+                                         ID_PELICULA INT,
                                          NO_SALA INT,
                                          CONSTRAINT PK_ID_SALA PRIMARY KEY(ID_SALA),
                                          CONSTRAINT FK2_ID_PELICULA FOREIGN KEY(ID_PELICULA) REFERENCES PELICULA(ID_PELICULA));
-       
+                                         
+                                         
+                                         
+                      CREATE SEQUENCE sec_pelicula
+                      start with 1
+                      increment by 1
+                      nomaxvalue;
