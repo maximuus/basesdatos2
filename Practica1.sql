@@ -66,3 +66,33 @@ CREATE TABLE PELICULA (ID_PELICULA INT,
                       start with 1
                       increment by 1
                       nomaxvalue;
+
+
+
+
+SET SERVEROUTPUT ON;
+                      
+                      CREATE OR REPLACE PROCEDURE HOLA_MUNDO(NOMBRE IN VARCHAR2)
+                      AS
+                      BEGIN
+                      
+                      --AQUI VA LOGICA
+                      
+                      DBMS_OUTPUT.PUT_LINE('HOLA COMO ESTAS' || NOMBRE);
+                      END;
+                      /
+                      
+                      
+                      BEGIN
+                      HOLA_MUNDO (' MAXI');
+                      END;
+                      /
+                      
+                      DECLARE 
+                      RESULTADO NUMBER;
+                      BEGIN
+                      SUMA(12,8,RESULTADO);
+                      DBMS_OUTPUT.PUT_LINE('LA SUMA ES ☺ '||RESULTADO);
+                      END; 
+                      /
+                      
