@@ -136,3 +136,50 @@ END;
 
 SELECT * FROM PELICULA;
 
+CREATE TABLE SIMPLE1(ID_SIMPLE INT,
+                     EDAD INT,
+                     NOMBRE VARCHAR2 (20));
+                     
+                     --LA LLAMAMOS CON INFORMACION RAPIDA
+                     
+                     DECLARE
+                     MI_EDAD INT;
+                     
+                     BEGIN
+                     MI_EDAD:=20;
+                     
+                     FOR i IN 1..20 LOOP
+                     MI_EDAD:=MI_EDAD+i;
+                     insert into simple1 values(i,MI_EDAD,'MAXITO');
+                     END LOOP;
+                     END;
+                     /
+                     
+                     SELECT * FROM SIMPLE1;
+                     
+                      --CURSOR SIMPLE DE UNA SOLA OCURRENCIA.    
+                     --CREAR UN CURSOR QUE BUSQUE EL ID QUE VALGA 21 Y SUSTITUIR EL NOMBRE POR EL TUYO.
+                     SET SERVEROUTPUT ON;
+                     
+             
+                  
+                  INSERT INTO SIMPLE1 VALUES(1,21,'MAX');
+                  INSERT INTO SIMPLE1 VALUES(2,23,'OSCAR');
+                  INSERT INTO SIMPLE1 VALUES(3,25,'JUAN');
+                  
+                  SELECT * FROM SIMPLE1;
+                  
+                
+                   DECLARE
+                     MI_NOMBRE VARCHAR2 (30);
+                     
+                     BEGIN
+                    SELECT NOMBRE INTO MI_NOMBRE FROM SIMPLE1 WHERE EDAD:=21;
+                    DBMS_OUTPUT.PUT_LINE(MI_NOMBRE);
+                    END;
+                    /
+
+
+
+
+
