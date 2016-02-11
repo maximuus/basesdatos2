@@ -24,6 +24,26 @@ EDAD:=YEARS*365;
 DBMS_OUTPUT.PUT_LINE('TU EDAD EN DIAS ES' || EDAD);
 
 END;
+
+
+
+
+
+
+create table paises(id_pais varchar2 (4),
+                    nombre varchar2 (100),
+                    habitante int, 
+                    idioma varchar2 (40), 
+                    constraint pk_id_pais primary key (id_pais));
+
+
+insert into paises values('mx','Mexico',900000,'español');
+insert into paises values('usa','Estados Unidos',1200000,'ingles');
+insert into paises values('jpa','Japon',800000,'japones');
+insert into paises values('ger','Alemania',1400000,'aleman');
+insert into paises values('bra','Brasil',2300000,'portugues');
+
+select * from paises;
 /
 --Crear un bloque PL SQL que genere 200,000 registros de secuencia ascendete en la tabla dance
 BEGIN
