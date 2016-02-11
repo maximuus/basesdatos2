@@ -30,21 +30,7 @@ END;
 
 
 
-create table paises(id_pais varchar2 (4),
-                    nombre varchar2 (100),
-                    habitante int, 
-                    idioma varchar2 (40), 
-                    constraint pk_id_pais primary key (id_pais));
 
-
-insert into paises values('mx','Mexico',900000,'español');
-insert into paises values('usa','Estados Unidos',1200000,'ingles');
-insert into paises values('jpa','Japon',800000,'japones');
-insert into paises values('ger','Alemania',1400000,'aleman');
-insert into paises values('bra','Brasil',2300000,'portugues');
-
-select * from paises;
-/
 --Crear un bloque PL SQL que genere 200,000 registros de secuencia ascendete en la tabla dance
 BEGIN
 
@@ -200,6 +186,40 @@ CREATE TABLE SIMPLE1(ID_SIMPLE INT,
                     /
 
 
+create table paises(id_pais varchar2 (4),
+                    nombre varchar2 (100),
+                    habitante int, 
+                    idioma varchar2 (40), 
+                    constraint pk_id_pais primary key (id_pais));
 
+
+insert into paises values('mx','Mexico',900000,'español');
+insert into paises values('usa','Estados Unidos',1200000,'ingles');
+insert into paises values('jpa','Japon',800000,'japones');
+insert into paises values('ger','Alemania',1400000,'aleman');
+insert into paises values('bra','Brasil',2300000,'portugues');
+
+select * from paises;
+
+
+
+DECLARE 
+CURSOR CUR_PAISES IS SELECT * FROM PAISES;
+TOTAL_HABITANTE INTEGER;
+BEGIN
+
+
+TOTAL_HABITANTE:=0;
+
+
+
+FOR FILA IN CUR_PAISES LOOP
+
+TOTAL_HABITANTE:=TOTAL_HABITANTE+FILA.HABITANTE;
+
+DBMS_OUTPUT.PUT_LINE('MENSAJITO: '|| FILA.NOMBRE||' HABITANTES: '||FILA.HABITANTE);
+END LOOP;
+DBMS_OUTPUT.PUT_LINE('HABITANTES DE TODOS LOS PAISES: '||TOTAL_HABITANTE);
+END;
 
 
