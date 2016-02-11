@@ -223,3 +223,36 @@ DBMS_OUTPUT.PUT_LINE('HABITANTES DE TODOS LOS PAISES: '||TOTAL_HABITANTE);
 END;
 
 
+
+
+
+
+create table pais(id_pais varchar2 (4),
+                    nombre varchar2 (100),
+                    habitante int, 
+                    idioma varchar2 (40), 
+                    constraint pk_id_pais primary key (id_pais));
+            
+create table estudiante(id_estudiante int,
+                        carrera varchar2(50), 
+                        edad int,
+                        id_pais varchar2 (4),
+                        constraint pk_id_estudiante primary key (id_estudiante),
+                        constraint fk1_id_pais foreign key (id_pais) references pais(id_pais));
+                        
+insert into pais values('mx','Mexico',900000,'español');
+insert into pais values('usa','Estados Unidos',1200000,'ingles');
+insert into pais values('jpa','Japon',800000,'japones');
+insert into pais values('ger','Alemania',1400000,'aleman');
+insert into pais values('bra','Brasil',2300000,'portugues');                       
+
+INSERT INTO ESTUDIANTE VALUES(1,'SISTEMAS COMPUTACIONALES',20,'mx');
+INSERT INTO ESTUDIANTE VALUES(2,'DERECHO',21,'usa');  
+INSERT INTO ESTUDIANTE VALUES(3,'NUTRICION',22,'jpa');
+INSERT INTO ESTUDIANTE VALUES(4,'ENFERMERIA',23,'ger');
+INSERT INTO ESTUDIANTE VALUES(5,'TELECOMUNICACIONES',24,'bra');
+INSERT INTO ESTUDIANTE VALUES(6,'MECATRONICA',25,'mx');
+INSERT INTO ESTUDIANTE VALUES(7,'ROBOTICA',26,'mx');  
+
+SELECT * FROM PAIS;
+
